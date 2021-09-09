@@ -1,0 +1,100 @@
+
+body {
+  background-image: url('https://mcdn.wallpapersafari.com/medium/18/86/OYuhta.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;}
+
+li {text-align: left;}
+
+h1 {
+  font-size: 600%;} 
+h2 {
+  font-size: 250%;}
+h3 {
+  font-size: 200%}
+p {text-align: center;}
+
+a {color: rgb(70, 206, 111) ;}
+.topnav {
+  font-family: Arial, Helvetica, sans-serif;
+  border: 5px solid rgb(48, 156, 81);
+  font-size: 150%; } 
+.topnav {
+  overflow: hidden;
+  background-color: rgb(0, 0, 0);
+  position: -webkit-sticky /*safari*/;
+  position: sticky;
+  top: 0;}
+    
+.topnav a {
+  float: left;
+  color: rgb(70, 206, 111);
+  text-align: center;
+  padding: 10px 16px;
+  text-decoration: none;
+  font-size: 17px;}
+    
+.topnav a:hover {
+  background-color: rgb(48, 48, 48);
+  color: rgb(0, 214, 196);}
+    
+.topnav a.active {
+  background-color: rgb(0, 59, 77);
+  color: rgb(179, 255, 0);}
+    
+.topnav-right {
+  float: right;}
+
+.sidenav {height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: rgb(0, 0, 0);
+  overflow: hidden;
+  padding-top: 60px;
+  transition: 0,5s;}
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: rgb(48, 156, 81);
+  display: block;
+  transition: 0.3s;}
+.sidenav a:hover {
+  color: rgb(0, 214, 196);}
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;}
+
+.sidenav a {list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #000000;}  
+
+.sidenav a {display: block;
+  color: rgb(48, 156, 81);
+  padding: 8px 16px;
+  text-decoration: none;
+  text-align: right;}  
+
+#rcorners1 {
+  border-radius: 25px;
+  background: rgb(0, 0, 0);
+  border: solid rgb(48, 156, 81);
+  padding: 20px;
+  margin: auto;
+  font-size: 150%;
+  width: 500px;
+  height: 100px;
+  color: rgb(48, 156, 81);}
+   
+

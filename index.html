@@ -1,12 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Index Page</title>
-  </head>
-  <body>
-    <h1>index</h1>
-  </body>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Home Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="topnav">
+      <a class="active" href="index.html">Home</a>
+      <a href="profile.html">Profile</a>
+    <div class="topnav-right">
+      <div id="main">
+   <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" 
+    class="closebtn" 
+    onclick="closeNav()">&times;</a>
+   <a href="https://www.w3schools.com" 
+  target="_blank">W3Schools</a>
+    <a href="https://github.com" 
+    target="_blank">Github</a>
+    <a href="https://www.freecodecamp.org" 
+    target="_blank">Free Code Camp</a>
+   </div>
+  </div>
+<span style="text-align:center;font-size:20px;cursor:pointer;color:rgb(48, 156, 81) ;" 
+onclick="openNav()">&#9776; open</span>
+
+<script>
+function openNav() {
+  document.getElementById("mySidenav")
+  .style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav")
+  .style.width = "0";}
+</script>
+    </div>
+  </div>
+  
+  <h1>Home</h1>
+ <h2>Welcome to my home page!</h2>
+<p id="rcorners1">For more information about me click on the Profile button at the top of the page</p>
+<p id="rcorners1">For links that are relevant to an ICT study click on the Open button at the top right</p> 
 </html>
