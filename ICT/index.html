@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Home page</title>
+  <meta name="description" content="Site with information about me and about the study I am following.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Home Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="topnav">
+    <a class="active" href="index.html">Home</a>
+    <a href="profile.html">Profile</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="blog.html">Blog</a>
+    <a href="faq.html">FAQ</a>
+    <div class="topnav-right">
+      <div id="main">
+        <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <a href="https://www.w3schools.com" target="_blank">W3Schools</a>
+          <a href="https://github.com" target="_blank">Github</a>
+          <a href="https://www.freecodecamp.org" target="_blank">Free Code Camp</a>
+          <a href="https://hz.nl/over-de-hz/regelingen-documenten-1/onderwijs-en-examenregelingen"
+            target="_blank">Course and Examination Regulations</a>
+          <a href="https://hz.nl/uploads/documents/Regelingen/OERS/2019-2020/2020-2021-ICT-Implementation-Regulations-CER-HZ-DEF1.0.pdf"
+            target="_blank">Implementation Regulations</a>
+          <a href="https://learn.hz.nl/my/" target="_blank">Learn HZ</a>
+          <a href="https://teams.microsoft.com/l/team/19%3a827654897ab746089c081f24aff1c984%40thread.skype/conversations?groupId=337e8cca-f67d-4132-9fa9-b0c761bbeb94&tenantId=4c16deb3-342d-4fca-bcd5-b1429308034c"
+            target="_blank">Teams environment link</a>
+          <a href="https://apps.hz.nl/angular/studievoortgang/studiestatus" target="_blank">My Study Progress</a>
+        </div>
+      </div>
+      <span style="float:right;margin:5px;font-size:20px;cursor:pointer;color:rgb(48, 156, 81) ;"
+        onclick="openNav()">&#9776;
+      </span>
+    </div>
+    <script>
+      function openNav() {
+        document.getElementById("mySidenav")
+          .style.width = "250px";
+      }
+      function closeNav() {
+        document.getElementById("mySidenav")
+          .style.width = "0";
+      }
+    </script>
+  </div>
+  <article class="home-page">
+    <h1>Home</h1>
+    <h2>Welcome to my site!</h2>
+  </article>
+  <article class="home-info">
+    <div id="rcorners2">
+      <p>On this site you will be able to find information about the HBO-ICT programme, about me and my view on ICT,
+        Certain discussions regarding ICT problems and a few useful sites that we use for the HBO-ICT programme.
+      </p>
+    </div>
+  </article>
+  <pre></pre>
+  <article class="home-pitch-intro">
+    <h3>My pitch</h3>
+    <div id="rcorners1">
+      <div class="index-images">
+        <div id="index-images">
+          <img src="images/index-images/source-code.png">
+          <p>In my pitch I will be talking about:</p>
+          <ul>
+            <li>Why I chose to do the HBO-ICT programme,</li>
+            <li>How my site functions,</li>
+            <li>Where you can find certain information</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </article>
+  <pre></pre>
+  <article class="home-pitch-info">
+    <div id="rcorners1">
+      <h4>The reason I chose HBO-ICT at HZ Middelburg</h4>
+      <p>Since I was little I have been interested in computers,
+        instead of playing outside I would rather sit at home and play games on our computer.
+        This basically never changed and I still enjoy playing video games a lot,
+        but I want to expand my knowledge now.
+      <pre></pre>
+      <p>I want to know more about ICT rather than only caring about video games.
+      </p>
+      <h4>I want to learn:</h4>
+      <ul>
+        <li>Why the world needs people who have a job that requires a lot ICT knowledge.</li>
+        <li>What my futurue could look like after doing this course</li>
+        <li>How to effectively use different coding languages</li>
+      </ul>
+      <p>Thats why I chose to do HBO-ICT and have my future job be something ICT related,
+        at this point of time I am not quite sure what I want to be specialized in.
+        I am leaning towards game development since that has been my main hobby since I was 5.
+        But maybe I will find more interest in something else while im attending this course.
+        Whether it is creating mobile phone apps, websites or something else,
+        does not matter to me yet,
+        but I hope to find out what I want to specialize in through this course.
+        Right now I am not very experienced with coding but I hope to learn a lot about it soon,
+        that is why I chose to go to HZ Middelburg since I heard a lot of good things from friends who also go/went to
+        hz.
+      </p>
+      <div id="index-images">
+        <img src="images/index-images/hz.png" style="width: 200px;">
+      </div>
+    </div>
+  </article>
+
+</html>
