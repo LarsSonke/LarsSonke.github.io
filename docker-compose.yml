@@ -1,0 +1,47 @@
+services:
+
+    mysql:
+        image: mysql
+        volumes:
+            - 'apache-mysql:/var/lib/mysql'
+        environment:
+            MYSQL_ROOT_PASSWORD: "${DB_PASSWORD}"
+            MYSQL_ROOT_HOST: "%"
+            MYSQL_DATABASE: "${DB_DATABASE}"
+            MYSQL_USER: "${DB_USERNAME}"
+            MYSQL_PASSWORD: "${DB_PASSWORD}"
+            MYSQL_ALLOW_EMPTY_PASSWORD: 1
+        ports:
+            - '${FORWARD_DB_PORT:-3306}:3306'
+        networks:
+            - bingus
+
+    php-apache:
+        container_name: Application
+        build:
+            context: .
+            dockerfile: Dockerfile
+        volumes:
+            - '.:/var/www/html/'
+        ports:
+            - '${APP_PORT:-80}:80'
+        networks:
+            - bingus
+        depends_on:
+            - mysql
+
+    composer:
+        container_name: Composer
+        image: composer
+        volumes:
+            - '.:/app'
+        command: >
+            bash -c "composer update
+            && composer install"
+
+networks:
+    bingus:
+        driver: bridge
+volumes:
+    apache-mysql:
+        driver: local

@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+    
+    body {
+        @apply antialiased;
+    }
+}
+
+@layer components {
+    .btn-primary {
+        @apply px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors shadow-md;
+    }
+    
+    .btn-secondary {
+        @apply px-6 py-3 bg-gray-200 text-gray-800 font-semibold rounded-lg hover:bg-gray-300 transition-colors;
+    }
+    
+    .card {
+        @apply bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow;
+    }
+    
+    /* Tech-focused card style */
+    .tech-card {
+        @apply relative bg-gray-900/50 border border-blue-500/30 backdrop-blur-sm;
+        transition: all 0.3s ease;
+    }
+    
+    .tech-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.5), transparent);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .tech-card:hover {
+        @apply border-blue-400/50 shadow-lg;
+        box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
+    }
+    
+    .tech-card:hover::before {
+        opacity: 1;
+    }
+    
+    /* Sharp geometric accents */
+    .clip-corner {
+        clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%);
+    }
+    
+    .clip-corner-both {
+        clip-path: polygon(20px 0, calc(100% - 20px) 0, 100% 20px, 100% calc(100% - 20px), calc(100% - 20px) 100%, 20px 100%, 0 calc(100% - 20px), 0 20px);
+    }
+}
