@@ -10,32 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <style>
-        body{font-family:'Inter',sans-serif}
-        .gradient-bg{background:linear-gradient(135deg,#0a0a0f 0%,#111827 50%,#0f172a 100%)}
-        .loading-screen{position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,#0a0a0f 0%,#111827 50%,#0f172a 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;transition:opacity .5s ease,visibility .5s ease}
-        .loading-screen.hidden{opacity:0;visibility:hidden}
-        .loader{width:60px;height:60px;border:3px solid rgba(59,130,246,.2);border-top-color:#3b82f6;border-radius:50%;animation:spin 1s linear infinite}
-        @keyframes spin{to{transform:rotate(360deg)}}
-        .loading-text{margin-top:20px;color:#3b82f6;font-size:18px;font-weight:600;animation:pulseT 1.5s ease-in-out infinite}
-        @keyframes pulseT{0%,100%{opacity:.5}50%{opacity:1}}
-        .tech-grid{position:fixed;top:0;left:0;width:100%;height:100%;background-image:linear-gradient(rgba(59,130,246,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,.05) 1px,transparent 1px);background-size:50px 50px;pointer-events:none;z-index:0;transition:background-position .3s ease}
-        .tech-lines{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:hidden}
-        .tech-line{position:absolute;background:linear-gradient(90deg,transparent,rgba(59,130,246,.3),transparent);height:1px;width:100%;animation:scan 8s linear infinite}
-        .tech-line:nth-child(1){top:20%;animation-delay:0s}.tech-line:nth-child(2){top:50%;animation-delay:2s}.tech-line:nth-child(3){top:80%;animation-delay:4s}
-        @keyframes scan{0%,100%{opacity:0;transform:translateX(-100%)}50%{opacity:1}100%{transform:translateX(100%)}}
-        .corner-accent{position:fixed;width:200px;height:200px;border:1px solid rgba(59,130,246,.2);pointer-events:none;z-index:0}
-        .corner-accent.top-left{top:0;left:0;border-right:none;border-bottom:none}
-        .corner-accent.bottom-right{bottom:0;right:0;border-left:none;border-top:none}
-        .back-to-top{position:fixed;bottom:30px;right:30px;width:50px;height:50px;background:linear-gradient(135deg,#3b82f6,#8b5cf6);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;visibility:hidden;transition:all .3s ease;z-index:50}
-        .back-to-top.visible{opacity:1;visibility:visible}
-        main{animation:fadeIn .5s ease-out}
-        @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-        .mouse-trail{position:fixed;width:8px;height:8px;background:radial-gradient(circle,rgba(59,130,246,.8) 0%,transparent 70%);border-radius:50%;pointer-events:none;z-index:1;animation:fadeOut .5s ease-out forwards}
-        @keyframes fadeOut{to{opacity:0;transform:scale(2)}}
-        .particle{position:fixed;width:4px;height:4px;background:rgba(59,130,246,.6);border-radius:50%;pointer-events:none;z-index:1;box-shadow:0 0 10px rgba(59,130,246,.8);animation:float 3s ease-in-out infinite}
-        @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
-    </style>
+    <link rel='stylesheet' href='theme.css'>
 </head>
 <body class="bg-gray-900 antialiased text-gray-100 gradient-bg">
     <div class="loading-screen" id="loadingScreen"><div class="loader"></div><div class="loading-text">Loading Portfolio...</div></div>
@@ -87,12 +62,12 @@
     <main class="relative z-[10]" x-data="{
         activeFilter: 'All',
         projects: [
-            { title:'Portfolio Website', desc:'A modern, responsive portfolio website built with Laravel and Tailwind CSS, featuring a dark tech-themed design with animated elements.', tags:['Web Development','PHP','Laravel'], status:'Active', statusColor:'bg-green-500/20 text-green-400 border-green-500/30', color:'from-blue-600/20 to-blue-500/10', icon:'🌐' },
-            { title:'Study Dashboard', desc:'An interactive dashboard for tracking academic progress, courses, and upcoming deadlines. Built with PHP and modern CSS.', tags:['Web Development','PHP'], status:'Active', statusColor:'bg-green-500/20 text-green-400 border-green-500/30', color:'from-purple-600/20 to-purple-500/10', icon:'📊' },
-            { title:'Blog Platform', desc:'A full-featured blog platform with categories, search functionality, and a modern UI. Built using the Laravel framework.', tags:['Web Development','PHP','Laravel'], status:'In Progress', statusColor:'bg-yellow-500/20 text-yellow-400 border-yellow-500/30', color:'from-green-600/20 to-green-500/10', icon:'✍️' },
-            { title:'Interactive Tech Grid', desc:'An animated background component featuring a mouse-reactive grid with particles and scanning lines, demonstrating CSS animations and JavaScript.', tags:['Web Development','JavaScript'], status:'Completed', statusColor:'bg-blue-500/20 text-blue-400 border-blue-500/30', color:'from-cyan-600/20 to-cyan-500/10', icon:'⚡' },
-            { title:'Task Manager App', desc:'A simple but effective task management application with drag-and-drop functionality, built with vanilla JavaScript.', tags:['JavaScript'], status:'Completed', statusColor:'bg-blue-500/20 text-blue-400 border-blue-500/30', color:'from-orange-600/20 to-orange-500/10', icon:'✅' },
-            { title:'Weather Dashboard', desc:'A weather dashboard that fetches real-time data from a public API and displays it with interactive charts and visualizations.', tags:['JavaScript','Web Development'], status:'In Progress', statusColor:'bg-yellow-500/20 text-yellow-400 border-yellow-500/30', color:'from-teal-600/20 to-teal-500/10', icon:'🌤️' }
+            { title:'Portfolio Website', desc:'A modern, responsive portfolio website built with Laravel and Tailwind CSS, featuring a dark tech-themed design with animated elements.', tags:['Web Development','PHP','Laravel'], status:'Active', statusColor:'bg-green-500/20 text-green-400 border-green-500/30', color:'from-blue-600/20 to-blue-500/10', icon:'WEB' },
+            { title:'Study Dashboard', desc:'An interactive dashboard for tracking academic progress, courses, and upcoming deadlines. Built with PHP and modern CSS.', tags:['Web Development','PHP'], status:'Active', statusColor:'bg-green-500/20 text-green-400 border-green-500/30', color:'from-purple-600/20 to-purple-500/10', icon:'DATA' },
+            { title:'Blog Platform', desc:'A full-featured blog platform with categories, search functionality, and a modern UI. Built using the Laravel framework.', tags:['Web Development','PHP','Laravel'], status:'In Progress', statusColor:'bg-yellow-500/20 text-yellow-400 border-yellow-500/30', color:'from-green-600/20 to-green-500/10', icon:'WRITE' },
+            { title:'Interactive Tech Grid', desc:'An animated background component featuring a mouse-reactive grid with particles and scanning lines, demonstrating CSS animations and JavaScript.', tags:['Web Development','JavaScript'], status:'Completed', statusColor:'bg-blue-500/20 text-blue-400 border-blue-500/30', color:'from-cyan-600/20 to-cyan-500/10', icon:'JS' },
+            { title:'Task Manager App', desc:'A simple but effective task management application with drag-and-drop functionality, built with vanilla JavaScript.', tags:['JavaScript'], status:'Completed', statusColor:'bg-blue-500/20 text-blue-400 border-blue-500/30', color:'from-orange-600/20 to-orange-500/10', icon:'DONE' },
+            { title:'Weather Dashboard', desc:'A weather dashboard that fetches real-time data from a public API and displays it with interactive charts and visualizations.', tags:['JavaScript','Web Development'], status:'In Progress', statusColor:'bg-yellow-500/20 text-yellow-400 border-yellow-500/30', color:'from-teal-600/20 to-teal-500/10', icon:'WX' }
         ],
         get filtered() {
             if (this.activeFilter === 'All') return this.projects;
@@ -103,7 +78,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h1 class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-violet-400 to-purple-400 bg-clip-text text-transparent">My Projects</h1>
                 <p class="text-xl text-gray-300">Web development and software projects from my ICT studies</p>
-                <p class="text-sm text-yellow-400/80 mt-2 bg-yellow-500/10 border border-yellow-500/20 rounded-lg px-4 py-2 inline-block">⚠️ Note: These are placeholder projects showcasing my current skills</p>
+                <p class="text-sm text-yellow-400/80 mt-2 bg-yellow-500/10 border border-yellow-500/20 rounded-lg px-4 py-2 inline-block">Note: These are placeholder projects showcasing my current skills</p>
             </div>
         </div>
 
@@ -157,3 +132,5 @@
     </script>
 </body>
 </html>
+
+

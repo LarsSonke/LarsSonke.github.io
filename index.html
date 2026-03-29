@@ -25,84 +25,7 @@
 
     <!-- Alpine.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-
-        .gradient-bg {
-            background: linear-gradient(135deg, #0a0a0f 0%, #111827 50%, #0f172a 100%);
-        }
-
-        /* Loading Screen */
-        .loading-screen {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(135deg, #0a0a0f 0%, #111827 50%, #0f172a 100%);
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            z-index: 9999; transition: opacity 0.5s ease, visibility 0.5s ease;
-        }
-        .loading-screen.hidden { opacity: 0; visibility: hidden; }
-        .loader {
-            width: 60px; height: 60px;
-            border: 3px solid rgba(59, 130, 246, 0.2);
-            border-top-color: #3b82f6;
-            border-radius: 50%; animation: spin 1s linear infinite;
-        }
-        @keyframes spin { to { transform: rotate(360deg); } }
-        .loading-text {
-            margin-top: 20px; color: #3b82f6; font-size: 18px; font-weight: 600;
-            animation: pulse 1.5s ease-in-out infinite;
-        }
-        @keyframes pulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
-
-        /* Tech grid background */
-        .tech-grid {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background-image:
-                linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
-            background-size: 50px 50px; pointer-events: none; z-index: 0;
-            transition: background-position 0.3s ease;
-        }
-        .tech-lines { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; overflow: hidden; }
-        .tech-line {
-            position: absolute; background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.3), transparent);
-            height: 1px; width: 100%; animation: scan 8s linear infinite;
-        }
-        .tech-line:nth-child(1) { top: 20%; animation-delay: 0s; }
-        .tech-line:nth-child(2) { top: 50%; animation-delay: 2s; }
-        .tech-line:nth-child(3) { top: 80%; animation-delay: 4s; }
-        @keyframes scan {
-            0%, 100% { opacity: 0; transform: translateX(-100%); }
-            50% { opacity: 1; }
-            100% { transform: translateX(100%); }
-        }
-
-        .corner-accent { position: fixed; width: 200px; height: 200px; border: 1px solid rgba(59, 130, 246, 0.2); pointer-events: none; z-index: 0; }
-        .corner-accent.top-left { top: 0; left: 0; border-right: none; border-bottom: none; }
-        .corner-accent.bottom-right { bottom: 0; right: 0; border-left: none; border-top: none; }
-
-        .particle { position: fixed; width: 4px; height: 4px; background: rgba(59, 130, 246, 0.6); border-radius: 50%; pointer-events: none; z-index: 1; box-shadow: 0 0 10px rgba(59, 130, 246, 0.8); animation: float 3s ease-in-out infinite; }
-        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
-
-        .mouse-trail { position: fixed; width: 8px; height: 8px; background: radial-gradient(circle, rgba(59, 130, 246, 0.8) 0%, transparent 70%); border-radius: 50%; pointer-events: none; z-index: 1; animation: fadeOut 0.5s ease-out forwards; }
-        @keyframes fadeOut { to { opacity: 0; transform: scale(2); } }
-
-        .fade-in-up { opacity: 0; transform: translateY(15px); transition: opacity 0.4s ease, transform 0.4s ease; }
-        .fade-in-up.visible { opacity: 1; transform: translateY(0); }
-
-        .back-to-top {
-            position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px;
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6); border-radius: 50%;
-            display: flex; align-items: center; justify-content: center; cursor: pointer;
-            opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 50;
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
-        }
-        .back-to-top.visible { opacity: 1; visibility: visible; }
-        .back-to-top:hover { transform: translateY(-5px); box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6); }
-
-        main { animation: fadeIn 0.5s ease-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    </style>
+    <link rel='stylesheet' href='theme.css'>
 </head>
 <body class="bg-gray-900 antialiased text-gray-100 gradient-bg">
 
@@ -292,7 +215,7 @@
                         </div>
                         <h3 class="text-xl font-bold text-gray-100 mb-2">My Profile</h3>
                         <p class="text-gray-300 mb-4">Learn about my background, interests, skills, and what drives my passion for ICT.</p>
-                        <span class="text-blue-400 font-semibold group-hover:text-blue-300 inline-flex items-center transition-colors">View Profile →</span>
+                        <span class="text-blue-400 font-semibold group-hover:text-blue-300 inline-flex items-center transition-colors">View Profile -></span>
                     </a>
 
                     <!-- Blog -->
@@ -304,7 +227,7 @@
                         </div>
                         <h3 class="text-xl font-bold text-gray-100 mb-2">Blog & Articles</h3>
                         <p class="text-gray-300 mb-4">Read about my learning experiences, projects, reflections, and technical insights.</p>
-                        <span class="text-purple-400 font-semibold group-hover:text-purple-300 inline-flex items-center transition-colors">Read Blog →</span>
+                        <span class="text-purple-400 font-semibold group-hover:text-purple-300 inline-flex items-center transition-colors">Read Blog -></span>
                     </a>
 
                     <!-- Dashboard -->
@@ -316,7 +239,7 @@
                         </div>
                         <h3 class="text-xl font-bold text-gray-100 mb-2">Dashboard</h3>
                         <p class="text-gray-300 mb-4">Track my study progress, coursework, and academic achievements at HZ.</p>
-                        <span class="text-green-400 font-semibold group-hover:text-green-300 inline-flex items-center transition-colors">View Dashboard →</span>
+                        <span class="text-green-400 font-semibold group-hover:text-green-300 inline-flex items-center transition-colors">View Dashboard -></span>
                     </a>
 
                     <!-- Projects -->
@@ -328,7 +251,7 @@
                         </div>
                         <h3 class="text-xl font-bold text-gray-100 mb-2">My Projects</h3>
                         <p class="text-gray-300 mb-4">Explore my portfolio of web development and programming projects.</p>
-                        <span class="text-orange-400 font-semibold group-hover:text-orange-300 inline-flex items-center transition-colors">View Projects →</span>
+                        <span class="text-orange-400 font-semibold group-hover:text-orange-300 inline-flex items-center transition-colors">View Projects -></span>
                     </a>
 
                     <!-- Contact -->
@@ -340,7 +263,7 @@
                         </div>
                         <h3 class="text-xl font-bold text-gray-100 mb-2">Get In Touch</h3>
                         <p class="text-gray-300 mb-4">Have questions or want to connect? Send me a message!</p>
-                        <span class="text-cyan-400 font-semibold group-hover:text-cyan-300 inline-flex items-center transition-colors">Contact Me →</span>
+                        <span class="text-cyan-400 font-semibold group-hover:text-cyan-300 inline-flex items-center transition-colors">Contact Me -></span>
                     </a>
 
                     <!-- FAQ -->
@@ -352,7 +275,7 @@
                         </div>
                         <h3 class="text-xl font-bold text-gray-100 mb-2">FAQ</h3>
                         <p class="text-gray-300 mb-4">Find answers to frequently asked questions about my studies and career.</p>
-                        <span class="text-yellow-400 font-semibold group-hover:text-yellow-300 inline-flex items-center transition-colors">View FAQ →</span>
+                        <span class="text-yellow-400 font-semibold group-hover:text-yellow-300 inline-flex items-center transition-colors">View FAQ -></span>
                     </a>
                 </div>
             </div>
@@ -436,7 +359,7 @@
             document.body.appendChild(particle);
         }
 
-        // Mouse movement — shift grid
+        // Mouse movement - shift grid
         document.addEventListener('mousemove', (e) => {
             const xShift = (e.clientX / window.innerWidth - 0.5) * 20;
             const yShift = (e.clientY / window.innerHeight - 0.5) * 20;
@@ -454,3 +377,5 @@
     </script>
 </body>
 </html>
+
+

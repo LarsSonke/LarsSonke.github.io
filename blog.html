@@ -10,32 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <style>
-        body{font-family:'Inter',sans-serif}
-        .gradient-bg{background:linear-gradient(135deg,#0a0a0f 0%,#111827 50%,#0f172a 100%)}
-        .loading-screen{position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,#0a0a0f 0%,#111827 50%,#0f172a 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;transition:opacity .5s ease,visibility .5s ease}
-        .loading-screen.hidden{opacity:0;visibility:hidden}
-        .loader{width:60px;height:60px;border:3px solid rgba(59,130,246,.2);border-top-color:#3b82f6;border-radius:50%;animation:spin 1s linear infinite}
-        @keyframes spin{to{transform:rotate(360deg)}}
-        .loading-text{margin-top:20px;color:#3b82f6;font-size:18px;font-weight:600;animation:pulse 1.5s ease-in-out infinite}
-        @keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}
-        .tech-grid{position:fixed;top:0;left:0;width:100%;height:100%;background-image:linear-gradient(rgba(59,130,246,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,.05) 1px,transparent 1px);background-size:50px 50px;pointer-events:none;z-index:0;transition:background-position .3s ease}
-        .tech-lines{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:hidden}
-        .tech-line{position:absolute;background:linear-gradient(90deg,transparent,rgba(59,130,246,.3),transparent);height:1px;width:100%;animation:scan 8s linear infinite}
-        .tech-line:nth-child(1){top:20%;animation-delay:0s}.tech-line:nth-child(2){top:50%;animation-delay:2s}.tech-line:nth-child(3){top:80%;animation-delay:4s}
-        @keyframes scan{0%,100%{opacity:0;transform:translateX(-100%)}50%{opacity:1}100%{transform:translateX(100%)}}
-        .corner-accent{position:fixed;width:200px;height:200px;border:1px solid rgba(59,130,246,.2);pointer-events:none;z-index:0}
-        .corner-accent.top-left{top:0;left:0;border-right:none;border-bottom:none}
-        .corner-accent.bottom-right{bottom:0;right:0;border-left:none;border-top:none}
-        .back-to-top{position:fixed;bottom:30px;right:30px;width:50px;height:50px;background:linear-gradient(135deg,#3b82f6,#8b5cf6);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;visibility:hidden;transition:all .3s ease;z-index:50}
-        .back-to-top.visible{opacity:1;visibility:visible}
-        main{animation:fadeIn .5s ease-out}
-        @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-        .mouse-trail{position:fixed;width:8px;height:8px;background:radial-gradient(circle,rgba(59,130,246,.8) 0%,transparent 70%);border-radius:50%;pointer-events:none;z-index:1;animation:fadeOut .5s ease-out forwards}
-        @keyframes fadeOut{to{opacity:0;transform:scale(2)}}
-        .particle{position:fixed;width:4px;height:4px;background:rgba(59,130,246,.6);border-radius:50%;pointer-events:none;z-index:1;box-shadow:0 0 10px rgba(59,130,246,.8);animation:float 3s ease-in-out infinite}
-        @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
-    </style>
+    <link rel='stylesheet' href='theme.css'>
 </head>
 <body class="bg-gray-900 antialiased text-gray-100 gradient-bg">
     <div class="loading-screen" id="loadingScreen"><div class="loader"></div><div class="loading-text">Loading Portfolio...</div></div>
@@ -96,11 +71,11 @@
         search: '',
         activeTag: 'All',
         posts: [
-            { id:1, title:'Study Discussions', desc:'Academic discussions and classroom conversations from ICT studies.', tag:'Discussions', href:'discussions.html', color:'from-blue-500/20 to-blue-600/10', badge:'bg-blue-500/20 text-blue-400 border-blue-500/30', img:'💬' },
-            { id:2, title:'Company Safari', desc:'Insights and reflections from company visits and industry encounters.', tag:'Experiences', href:'company-safari.html', color:'from-purple-500/20 to-purple-600/10', badge:'bg-purple-500/20 text-purple-400 border-purple-500/30', img:'🏢' },
-            { id:3, title:'SWOT Analysis', desc:'Personal and professional SWOT analysis for my ICT career.', tag:'Reflections', href:'swot.html', color:'from-green-500/20 to-green-600/10', badge:'bg-green-500/20 text-green-400 border-green-500/30', img:'📊' },
-            { id:4, title:'Work Experience', desc:'Reflections and learnings from internship and work environments.', tag:'Experiences', href:'experience.html', color:'from-orange-500/20 to-orange-600/10', badge:'bg-orange-500/20 text-orange-400 border-orange-500/30', img:'💼' },
-            { id:5, title:'Feedback & Growth', desc:'Personal feedback and continuous improvement reflections.', tag:'Reflections', href:'feedback.html', color:'from-pink-500/20 to-pink-600/10', badge:'bg-pink-500/20 text-pink-400 border-pink-500/30', img:'🌱' }
+            { id:1, title:'Study Discussions', desc:'Academic discussions and classroom conversations from ICT studies.', tag:'Discussions', href:'discussions.html', color:'from-blue-500/20 to-blue-600/10', badge:'bg-blue-500/20 text-blue-400 border-blue-500/30', img:'CHAT' },
+            { id:2, title:'Company Safari', desc:'Insights and reflections from company visits and industry encounters.', tag:'Experiences', href:'company-safari.html', color:'from-purple-500/20 to-purple-600/10', badge:'bg-purple-500/20 text-purple-400 border-purple-500/30', img:'BIZ' },
+            { id:3, title:'SWOT Analysis', desc:'Personal and professional SWOT analysis for my ICT career.', tag:'Reflections', href:'swot.html', color:'from-green-500/20 to-green-600/10', badge:'bg-green-500/20 text-green-400 border-green-500/30', img:'DATA' },
+            { id:4, title:'Work Experience', desc:'Reflections and learnings from internship and work environments.', tag:'Experiences', href:'experience.html', color:'from-orange-500/20 to-orange-600/10', badge:'bg-orange-500/20 text-orange-400 border-orange-500/30', img:'WORK' },
+            { id:5, title:'Feedback & Growth', desc:'Personal feedback and continuous improvement reflections.', tag:'Reflections', href:'feedback.html', color:'from-pink-500/20 to-pink-600/10', badge:'bg-pink-500/20 text-pink-400 border-pink-500/30', img:'GROW' }
         ],
         get filtered() {
             return this.posts.filter(p =>
@@ -167,3 +142,5 @@
     </script>
 </body>
 </html>
+
+
