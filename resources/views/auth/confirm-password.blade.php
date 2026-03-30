@@ -2,31 +2,31 @@
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                <x-application-logo />
             </a>
         </x-slot>
 
-        <div class="mb-4 text-sm text-gray-600">
+        <div class="site-auth-help-text site-auth-feedback">
             {{ __('This is a secure area of the application. Please confirm your password before continuing.') }}
         </div>
 
         <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+        <x-auth-validation-errors class="site-auth-feedback" :errors="$errors" />
 
-        <form method="POST" action="{{ route('password.confirm') }}">
+        <form method="POST" action="{{ route('password.confirm') }}" class="site-auth-form">
             @csrf
 
             <!-- Password -->
-            <div>
+            <div class="site-auth-field-group">
                 <x-label for="password" :value="__('Password')" />
 
-                <x-input id="password" class="block mt-1 w-full"
+                <x-input id="password"
                                 type="password"
                                 name="password"
                                 required autocomplete="current-password" />
             </div>
 
-            <div class="flex justify-end mt-4">
+            <div class="site-auth-actions-end">
                 <x-button>
                     {{ __('Confirm') }}
                 </x-button>

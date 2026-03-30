@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Computer Favicon</title>
+  <desc id="desc">A stylized desktop computer icon.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f1f3a"/>
+      <stop offset="1" stop-color="#1d3f7a"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6fb7ff"/>
+      <stop offset="1" stop-color="#89f0ff"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="url(#bg)"/>
+  <rect x="12" y="14" width="40" height="28" rx="5" fill="#0b1220" stroke="#9fc3ff" stroke-width="2"/>
+  <rect x="16" y="18" width="32" height="20" rx="3" fill="url(#screen)"/>
+  <rect x="28" y="44" width="8" height="6" rx="2" fill="#9fc3ff"/>
+  <rect x="20" y="50" width="24" height="4" rx="2" fill="#d8e7ff"/>
+</svg>

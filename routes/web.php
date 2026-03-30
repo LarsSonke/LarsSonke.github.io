@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\StudyProgress;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,8 +22,20 @@ Route::get('/index', function () {
     return view('home');
 });
 
+Route::get('/progress', function () {
+    $progress = StudyProgress::first() ?? StudyProgress::firstOrCreate([], [
+        'propedeuse_ec' => 0,
+        'bachelor_ec_earned' => 0,
+        'bachelor_ec_total' => 180,
+        'total_ec' => 0,
+        'courses_completed' => 0,
+        'courses_total' => 0,
+    ]);
+    return view('welcome', ['progress' => $progress]);
+});
+
 Route::get('/welcome', function () {
-    return view('welcome');
+    return redirect('/progress');
 });
 
 Route::get('/profile', function () {

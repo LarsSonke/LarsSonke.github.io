@@ -6,15 +6,19 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ config('app.name', 'Laravel') }}</title>
+        <link rel="icon" type="image/svg+xml" href="{{ asset('favicon-computer.svg') }}">
+        <link rel="alternate icon" href="{{ asset('favicon.ico') }}">
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <link rel="stylesheet" href="{{ asset('theme.css') }}">
+        <link rel="stylesheet" href="{{ asset('generalized.css') }}">
     </head>
     <body>
-        <div class="font-sans text-gray-900 antialiased">
+        <div class="site-auth-page">
             {{ $slot }}
         </div>
     </body>

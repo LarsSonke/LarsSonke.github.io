@@ -1,17 +1,20 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+@extends('layouts.main')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    You're logged in!
-                </div>
-            </div>
-        </div>
+@section('title', 'Dashboard')
+@section('description', 'Authenticated dashboard overview')
+
+@section('content')
+<div class="site-page-header site-page-header--dashboard">
+    <div class="site-page-header-inner">
+        <h1 class="site-page-header-title">Dashboard</h1>
+        <p class="site-page-header-subtitle">Welcome back to your workspace.</p>
     </div>
-</x-app-layout>
+</div>
+
+<div class="site-page-shell-medium">
+    <div class="site-panel site-panel-padded">
+        <h2 class="site-title-md">Session Status</h2>
+        <p class="site-text-body">You're logged in.</p>
+    </div>
+</div>
+@endsection

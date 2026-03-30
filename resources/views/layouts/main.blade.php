@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title', 'My Portfolio')</title>
     <meta name="description" content="@yield('description', 'Portfolio website showcasing my ICT studies and projects')">
+    <link rel="icon" type="image/svg+xml" href="{{ asset('favicon-computer.svg') }}">
+    <link rel="alternate icon" href="{{ asset('favicon.ico') }}">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,6 +17,7 @@
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="stylesheet" href="{{ asset("theme.css") }}">
+    <link rel="stylesheet" href="{{ asset("generalized.css") }}">
 </head>
 <body class="bg-gray-900 font-sans antialiased text-gray-100 gradient-bg">
     
@@ -50,25 +53,23 @@
         <x-navigation />
     </div>
     
-    <!-- Breadcrumb -->
-    <div class="relative z-[10] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-            <a href="{{ url('/') }}">Home</a>
-            @hasSection('breadcrumb')
-                @yield('breadcrumb')
-            @endif
-        </nav>
+    <div class="site-readable-shell">
+        <div class="site-readable-panel">
+            <!-- Main Content -->
+            <main class="relative z-[10]">
+                @yield('content')
+            </main>
+
+            <!-- Footer -->
+            <div class="relative z-[10]">
+                <x-footer />
+            </div>
+        </div>
     </div>
-    
-    <!-- Main Content -->
-    <main class="relative z-[10]">
-        @yield('content')
-    </main>
-    
-    <!-- Footer -->
-    <div class="relative z-[10]">
-        <x-footer />
-    </div>
+
+    <!-- Vanta.js Dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
     
     <!-- Interactive Background Script -->
     <script>
@@ -76,13 +77,45 @@
         const loadingScreen = document.getElementById('loadingScreen');
         const backToTop = document.getElementById('backToTop');
         let particles = [];
+        let vantaEffect = null;
         
         // Hide loading screen after page load
         window.addEventListener('load', () => {
             setTimeout(() => {
                 loadingScreen.classList.add('hidden');
             }, 800);
+
+            initVantaBackground();
         });
+
+        function initVantaBackground() {
+            if (!techGrid || !window.VANTA || !window.VANTA.NET) {
+                return;
+            }
+
+            if (window.matchMedia('(max-width: 768px)').matches) {
+                return;
+            }
+
+            vantaEffect = window.VANTA.NET({
+                el: techGrid,
+                mouseControls: true,
+                touchControls: true,
+                gyroControls: false,
+                minHeight: 200,
+                minWidth: 200,
+                scale: 1,
+                scaleMobile: 1,
+                color: 0x4a86f2,
+                backgroundColor: 0x0b1220,
+                points: 12,
+                maxDistance: 22,
+                spacing: 17,
+                showDots: true
+            });
+
+            techGrid.classList.add('has-vanta');
+        }
         
         // Back to top button functionality
         window.addEventListener('scroll', () => {
@@ -147,9 +180,11 @@
             const y = e.clientY;
             
             // Shift grid based on mouse position
-            const xShift = (x / window.innerWidth - 0.5) * 20;
-            const yShift = (y / window.innerHeight - 0.5) * 20;
-            techGrid.style.backgroundPosition = `${xShift}px ${yShift}px`;
+            if (!vantaEffect) {
+                const xShift = (x / window.innerWidth - 0.5) * 20;
+                const yShift = (y / window.innerHeight - 0.5) * 20;
+                techGrid.style.backgroundPosition = `${xShift}px ${yShift}px`;
+            }
             
             // Create trail effect occasionally
             if (Math.random() > 0.9) {
@@ -183,6 +218,12 @@
         if (window.matchMedia('(max-width: 768px)').matches) {
             particles.forEach(p => p.style.display = 'none');
         }
+
+        window.addEventListener('beforeunload', () => {
+            if (vantaEffect && typeof vantaEffect.destroy === 'function') {
+                vantaEffect.destroy();
+            }
+        });
     </script>
     
     <!-- Alpine.js for interactive components -->
